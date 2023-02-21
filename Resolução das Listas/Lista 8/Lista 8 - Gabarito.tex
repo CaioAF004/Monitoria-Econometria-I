@@ -1,0 +1,244 @@
+\documentclass[hidelinks,11pt]{book}
+
+%These tell TeX which packages to use.
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{graphicx} % adicionar figuras
+\usepackage{float}
+\usepackage{scalerel,stackengine}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{setspace} % configurar espaçamento entre linhas
+\usepackage{babel} %lingua portuguesa
+\usepackage{microtype}
+\usepackage{subcaption} % descrição de figuras
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[round]{natbib}
+\usepackage[a4paper, margin=2cm]{geometry} % margem
+\usepackage{hyperref}
+
+%Here I define some theorem styles and shortcut commands for symbols I use often
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+	
+	\begin{center}
+		{\Large Econometria I \hspace{0.5cm} Lista 8}\\
+		Profa. Lorena Hakak\\
+		Entrega: 27/11/2022
+	\end{center}
+	
+	\vspace{0.2 cm}
+	
+	
+	\section*{Capítulo 6}
+
+	
+	\subsection*{Exercício 6}
+
+Para saber se vamos incluir no modelo ou não, vamos encontrar o R-quadrado ajustado:
+
+\begin{displaymath}
+	\overline{R}^2 = 1 - \frac{(1 - R^2)(n-1)}    {n-k-1}
+\end{displaymath}
+
+
+\begin{displaymath}
+	\overline{R}^2 = 1 - \frac{(1 - 0,232)(680-1)}    {680-8-1}
+\end{displaymath}
+
+\begin{displaymath}
+	\overline{R}^2 = ,0223
+\end{displaymath}
+Para testar ao nível de significância de 10\%, faremos o teste F:
+
+\begin{displaymath}
+	F = \frac{\frac{(R^{2}_{ir} - R^{2}_{r})}{q}}    {\frac{1 - R^{2}_{ir}}{(n-k-1)}} = \frac{\frac{(0,232 - 0,229)}{673 - 671}}    {\frac{1 - 0,232}{(671)}} = 1,31
+\end{displaymath}
+
+Como $F>1,18$ então rejeita-se a hipótese nula. Eu incluiria essas variáveis pelo teste estatístico aplicado, apesar de alterar o R-quadrado e o R-quadrado ajustado em valores muito pequenos. Há como defender a não inclusão das variáveis pelo critério da parcimônia, em escolher modelos mais simples.
+
+	\subsection*{Exercício 8}
+
+\subsubsection*{(i)}
+
+Sim, devemos inserir a variável $attend$ na regressão juntamente com $alcohol$, mas não na mesma variável. Isso porque cada uma dessas variáveis possuem impactos em direção contrárias: enquanto o aumento da frequência tende a aumentar as notas, o aumento do consumo de álcool tende a diminuir as notas. 
+
+
+\subsubsection*{(ii)}
+
+Essas variáveis são importantes de serem incluídas pois ajuda no controle do nível prévio dos alunos. Caso essas variáveis não sejam inseridas, o efeito do álcool nas notas de graduação podem estar superestimadas.
+
+
+	\section*{Capítulo 7}
+	
+\subsection*{Exercício 2}
+
+\subsubsection*{(i)}
+
+Para cada cigarro a mais que a mãe fuma por dia durante a gravidez esperasse que se reduza 0,5\% do peso da criança. Caso a mãe fume pelo menos 10 cigarros por dia, esperasse uma redução do peso da criança em 5\%.
+
+\subsubsection*{(ii)}
+
+Espera-se que uma criança branca pese aproximadamente 4,5\% a mais que uma criança não branca. A diferença é estatisticamente significante, já que sua estatística t será de 3 (0,045/0,015), sendo significante a 1\%.
+
+
+\subsubsection*{(iii)}
+
+O que o efeito nos diz é que quanto maior os anos de escolaridade da mãe, menor é o peso da criança. Essa variável não se mostrou estatisticamente significante.
+
+\subsubsection*{(iv)}
+
+Não será possível calcular a estatística F por conta de que os dois modelos usam observações diferentes, já que possui um número menor do que a regressão restrita (a primeira). Para poder dar certo, teríamos que utilizar a mesma base de dados para as duas equações.
+
+
+\subsection*{Exercício 3}
+
+\subsubsection*{(i)}
+
+Sim, a variável $hsize^2$ deve ser incluída, já que sua estatística $t$ é de 4,13, sendo estatisticamente significante a 1\%. Para calcular o tamanho ótimo, temos que observar o efeito marginal do tamanho da sala:
+
+\begin{displaymath}
+	\frac{\Delta sat}{\Delta hsize} = 19,30 - 4,38 hsize = 0
+\end{displaymath}
+
+\begin{displaymath}
+	hsize \approx 4,4
+\end{displaymath}
+
+
+\subsubsection*{(ii)}
+
+A diferença passa a ser de aproximadamente 45,09 pontos no $SAT$. É estatisticamente significante a 1\%, já que sua estatística $t$ foi de 10,5.
+
+\subsubsection*{(iii)}
+
+
+
+Sendo a regressão populacional escrita por $ sat = \beta_0 + \beta_1 hsize + \beta_2 hsize^2 + \beta_3 female + \beta_4 black + \beta_5 female . black$, então o teste de hipótese seria:
+
+\begin{center}
+	$H_0 : \beta_{3} = 0$ e $\beta_{4} = 0$\\
+	$H_1 : \beta_{3} = 0$ e $\beta_{4} \not = 0$
+\end{center}
+
+Além disso, a diferença entre homens negros e não negros é de 169,81 pontos no $SAT$.
+
+
+\subsubsection*{(iv)}
+
+A diferença de notas entre mulheres negras e não negras é de 107,05 pontos no $SAT$ (62,31- 169,81). Para ver se é estatisticamente significante, eu precisaria fazer um teste $t$ restringindo $\beta_4$ e $\beta_5$ do modelo populacional.
+	
+\subsection*{Exercício 6}
+
+Dado que a correlação entre a variável omitida (aptidão) e o treinamento é negativa, já que o treinamento ocorreu para aqueles com menor aptidão, e o coeficiente da variável omitida será positiva (quanto maior a aptidão, maior o salário esperado) então o viés é negativo, tendo um modelo 
+
+
+\subsection*{Exercício 7}
+
+\subsubsection*{(i)}
+
+
+Sendo a regressão populacional feita em (7.29):
+
+\begin{displaymath}
+	inlf = \beta_0 + \beta_1 nwifeinc + \beta_2 educ + \beta_3 exper + \beta_4 exper^2 + \beta_5 age + \beta_6 kidslt6 + \beta_7 kidsge6
+\end{displaymath}
+
+E agora utilizando como variável dependente $outlf$, temos que:
+
+\begin{displaymath}
+	outlf = \beta_0 + \beta_1 nwifeinc + \beta_2 educ + \beta_3 exper + \beta_4 exper^2 + \beta_5 age + \beta_6 kidslt6 + \beta_7 kidsge6 + u
+\end{displaymath}
+
+Como $outlf = 1 - inlf$, então:
+
+\begin{displaymath}
+	1 - inlf = \beta_0 + \beta_1 nwifeinc + \beta_2 educ + \beta_3 exper + \beta_4 exper^2 + \beta_5 age + \beta_6 kidslt6 + \beta_7 kidsge6 + u
+\end{displaymath}
+
+\begin{displaymath}
+	- inlf = -1 + \beta_0 + \beta_1 nwifeinc + \beta_2 educ + \beta_3 exper + \beta_4 exper^2 + \beta_5 age + \beta_6 kidslt6 + \beta_7 kidsge6 + u
+\end{displaymath}
+
+\begin{displaymath}
+	inlf = (1 - \beta_0) - \beta_1 nwifeinc - \beta_2 educ - \beta_3 exper - \beta_4 exper^2 - \beta_5 age - \beta_6 kidslt6 - \beta_7 kidsge6 - u
+\end{displaymath}
+
+\subsubsection*{(ii)}
+
+Não acontece nada como erro padrão das variáveis, sendo que a mudança dos sinais dos betas irão mudar o sinal apenas da estatística $t$. O mesmo ocorre para o intercepto, já que:
+
+\begin{displaymath}
+	Var(1 - \beta_0) = Var(-\beta_0) = Var(\beta_0)
+\end{displaymath}
+
+\subsubsection*{(iii)}
+
+O R-quadrado não irá se alterar. Isso porque as mesmas variáveis estão sendo modeladas, alterando apenas a estrutura da regressão. Ao invés de ver como as variáveis influenciam a probabilidade de $inlf$ ser 1, no segundo modelo eles mostram a tendência da probabilidade de ser 0.
+	
+\end{document}

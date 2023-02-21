@@ -1,0 +1,335 @@
+\documentclass[hidelinks,11pt]{book}
+
+%These tell TeX which packages to use.
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{graphicx} % adicionar figuras
+\usepackage{float}
+\usepackage{scalerel,stackengine}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{setspace} % configurar espaçamento entre linhas
+\usepackage{babel} %lingua portuguesa
+\usepackage{microtype}
+\usepackage{subcaption} % descrição de figuras
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[round]{natbib}
+\usepackage[a4paper, margin=2cm]{geometry} % margem
+\usepackage{hyperref}
+
+%Here I define some theorem styles and shortcut commands for symbols I use often
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+	
+	\begin{center}
+		{\Large Econometria I \hspace{0.5cm} Lista 6}\\
+		Profa. Lorena Hakak\\
+		Entrega: 16/11/2022
+	\end{center}
+	
+	\vspace{0.2 cm}
+	
+	
+	
+\section*{Exercício 2}
+
+\subsection*{(i)}
+
+\begin{center}
+	$H_0 : \beta_{3} = 0$\\
+	$H_1 : \beta_{3} > 0$
+\end{center}
+
+\subsection*{(ii)}
+
+Um aumento de 50 pontos percentuais em $ros$, aumenta 50*0,00024 = 0,0012 pontos percentuais nos salários dos CEO's, não tendo um efeito grande.
+
+\subsection*{(iii)}
+
+Como se trata de um teste para uma variável aleatória e não conhecemos o desvio-padrão, a estatística apropriada possui distribuição \textit{t-Student}:
+
+\begin{displaymath}
+	T \sim t(208): t_0 = \frac{0,00024 - 0} {0,00054} = 0,444
+\end{displaymath}
+
+\begin{displaymath}
+	P[T > t_c ] = 0,1 \Rightarrow t_c = 1,288
+\end{displaymath}
+
+\begin{displaymath}
+	RC = [1,288, +\infty[
+\end{displaymath}
+
+Logo, como $t_0 \not \in RC$, não rejeitamos a hipótese nula.
+
+\subsection*{(iv)}
+
+Não, pois não foi possível rejeitar a hipótese de não haver impacto dos $ros$ sobre o $salary$.
+
+\section*{Exercício 6}
+
+\subsection*{(i)}
+
+\begin{center}
+	$H_0 : \beta_{0} = 0$\\
+	$H_1 : \beta_{0} \not = 0$
+\end{center}
+
+\begin{displaymath}
+	T \sim t(87): t_0 = \frac{-14,47 - 0} {16,27} = -0,889
+\end{displaymath}
+
+\begin{displaymath}
+	P[T > t_c ] = 0,05 \Rightarrow t_c = 1,987
+\end{displaymath}
+
+\begin{displaymath}
+	RC = [1,987, +\infty[
+\end{displaymath}
+
+Logo, como $t_0 \not \in RC$, não rejeitamos a hipótese nula.
+
+\begin{center}
+	$H_0 : \beta_{1} = 1$\\
+	$H_1 : \beta_{1} \not = 1$
+\end{center}
+
+\begin{displaymath}
+	T \sim t(87): t_0 = \frac{0,976 - 1} {0,049} = -0,49
+\end{displaymath}
+
+\begin{displaymath}
+	P[T > t_c ] = 0,05 \Rightarrow t_c = 2,021
+\end{displaymath}
+
+\begin{displaymath}
+	RC = [2,021, +\infty[
+\end{displaymath}
+
+Logo, como $t_0 \not \in RC$, não rejeitamos a hipótese nula. Sendo assim, tomamos a decisão de assumir que $\beta_0 = 0$ e $\beta_1 = 1$.
+
+\subsection*{(ii)}
+
+\begin{center}
+	$H_0 : \beta_{0} = 0$ e $\beta_{1} = 1$\\
+	$H_1 : \beta_{0} \not = 0$ ou $\beta_{1} \not = 1$
+\end{center}
+
+\begin{displaymath}
+	F = \frac{\frac{(SQR_r - SQR_{ir})}{q}}    {\frac{SQR_{ir}}{(n-k-1)}} = \frac{\frac{(209,448,99 - 165,644,51)}{87-86}}    {\frac{165,644,51}{(88-1-1)}} = 22,794
+\end{displaymath}
+
+Como F = 22,794 > 2,76, rejeitamos a hipótese nula a 5\% de significância.\\
+
+\subsection*{(iii)}
+
+\begin{center}
+	$H_0 : \beta_{2} =  \beta_3 = \beta_4 = 0$\\
+	$H_1 : \beta_{2} \not = 0$ ou $\beta_{3} \not = 0$ ou $\beta_{4} \not = 0$
+\end{center}
+
+\begin{displaymath}
+	F = \frac{\frac{(R^{2}_{ir} - R^{2}_{r})}{q}}    {\frac{1 - R^{2}_{ir}}{(n-k-1)}} = \frac{\frac{(0,829 - 0,820)}{86 -83}}    {\frac{1 - 0,829}{(83)}} = 15
+\end{displaymath}
+
+Como F = 15 > 2,76, rejeitamos a hipótese nula a 5\% de significância. Logo, alguma das variáveis consideradas no modelo irrestrito possui significância estatística.
+
+
+\section*{Exercício 7}
+
+\subsection*{(i)}
+
+\textbf{Empresas não sindicalizadas:}
+
+\begin{displaymath}
+	log(\hat{scarp}) = \underset{(5,69)}{12,46} -  \underset{(0,023)}{0,029} hrsemp -  \underset{(0,453)}{0,962} log(sales) +  \underset{(0,407)}{0,761} log(employ)
+\end{displaymath}
+
+n = 29, $R^2$ = 0,262.\\
+
+\textbf{Todas as empresas disponíveis:}
+
+\begin{displaymath}
+	log(\hat{scarp}) = \underset{(4,57)}{11,74} -  \underset{(0,019)}{0,042} hrsemp -  \underset{(0,370)}{0,951} log(sales) +  \underset{(0,360)}{0,992} log(employ)
+\end{displaymath}
+
+n = 43, $R^2$ = 0,310.\\
+
+Primeiro ponto a ser observado é a diferença entre os $R^2$. O aumento da amostra fez com que houvesse maior poder explicativo do modelo econométrico. Também houve redução de todos os erros padrões. No caso de $hrsemp$, provavelmente na primeira regressão a estimativa do parâmetro não é estatisticamente significante, enquanto na segunda é. Houve redução nas magnitudes das estimativas dos parâmetros do intercepto e das vendas, mas houve aumento em $hrsemp$ e $employ$.
+
+\subsection*{(ii)}
+
+Basta somar e subtrair $\beta_2 employ$ na equação:
+
+\begin{displaymath}
+	log(scarp) = \beta_0  + \beta_1 hrsemp +  \beta_2 log(sales) +  \beta_3 log(employ)   \textrm{\textcolor{red}{ + $\beta_2 employ$ - $\beta_2 employ$}}
+\end{displaymath}
+
+\begin{displaymath}
+	log(scarp) = \beta_0  + \beta_1 hrsemp +  \beta_2 log(sales/employ) +  \theta_3 log(employ)   
+\end{displaymath}
+
+Sendo $\theta_3 = \beta_2 + \beta_3$. O teste de hipótese seria $H_0: \theta_3 - 0 \Rightarrow \beta_2 = \beta_3$. Ou seja, a introdução de $\theta_3$ permite transformar um teste de hipótese conjunto em um teste de hipótese para um estimado.
+
+\subsection*{(iii)}
+
+Apenas olhando a magnitude de $\theta_3 = 0,041$ e seu erro padrão $ep(\theta_3$) = 0,205, é possível concluir que a estimativa do parâmetro não é estatisticamente significante.
+
+\subsection*{(iv)}
+
+\begin{center}
+	$H_0 : \beta_{2} = 1$\\
+	$H_1 : \beta_{2} \not = 1$
+\end{center}
+
+\begin{displaymath}
+	T \sim t(42): t_0 = \frac{0,951 - 1} {0,370} = -0,132
+\end{displaymath}
+
+\begin{displaymath}
+	P[T > t_c ] = 0,05 \Rightarrow t_c = 2,021
+\end{displaymath}
+
+\begin{displaymath}
+	RC = [2,021, +\infty[
+\end{displaymath}
+
+Logo, como $t_0 \not \in RC$, não rejeitamos a hipótese nula. Sendo assim, tomamos a decisão de assumir que $\beta_2 = 1$.
+
+
+\section*{Exercício 8}
+
+\subsection*{(i)}
+
+\begin{displaymath}
+	Var (\hat{\beta_1} - 3\hat{\beta_2}) = Var(\hat{\beta_1}) +  Var(3\hat{\beta_2}) -  2Cov(\hat{\beta_1}, 3\hat{\beta_2})
+\end{displaymath}
+
+\begin{displaymath}
+	Var (\hat{\beta_1} - 3\hat{\beta_2}) = Var(\hat{\beta_1}) + 9 Var(\hat{\beta_2}) -  6Cov(\hat{\beta_1}, \hat{\beta_2})
+\end{displaymath}
+
+\begin{displaymath}
+	ep (\hat{\beta_1} - 3\hat{\beta_2}) = \sqrt{ep(\hat{\beta_1})^2 + 9 ep(\hat{\beta_2})^2 -  2s_{12}}
+\end{displaymath}
+
+\subsection*{(ii)}
+
+\begin{displaymath}
+	T: t_0 = \frac{\hat{\beta_1} - 3\hat{\beta_2} - 1}  {ep (\hat{\beta_1} - 3\hat{\beta_2})}
+\end{displaymath}
+
+\subsection*{(iii)}
+
+\begin{displaymath}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + u
+\end{displaymath}
+
+\begin{displaymath}
+	y = \beta_0 + \beta_1 x_1 \textrm{\textcolor{red}{ + $3\beta_2 x_1$ -  $3\beta_2 x_1$}} + \beta_2 x_2 + \beta_3 x_3 + u
+\end{displaymath}
+
+\begin{displaymath}
+	y = \beta_0 + \theta_1 x_1 + \beta_2 (3x_1 + x_2) + \beta_3 x_3 + u
+\end{displaymath}
+
+Sendo $\theta_1 = \beta_1 + 3\beta_2$.
+
+\section*{Exercício 10}
+	
+\subsection*{(i)}
+
+\begin{center}
+	$H_0 : \beta_0 = \beta_1 = \beta_{2} =  \beta_3 = \beta_4 = 0$\\
+	$H_1$ : caso contrário
+\end{center}
+	
+\begin{displaymath}
+	F = \frac{\frac{(R^{2}_{ir} - R^{2}_{r})}{q}}    {\frac{1 - R^{2}_{ir}}{(n-k-1)}} = \frac{\frac{(0,0395 - 0)}{142 - 137}}    {\frac{1 - 0,0330}{(137)}} = 1,129
+\end{displaymath}
+
+Como F = 1,129 < 2,76, não podemos rejeitar a hipótese nula. Observando a magnitude de cada parâmetro e seu respectivo erro padrão apenas o intercepto é estatisticamente significante.
+
+\subsection*{(ii)}
+
+\begin{displaymath}
+	F = \frac{\frac{(R^{2}_{ir} - R^{2}_{r})}{q}}    {\frac{1 - R^{2}_{ir}}{(n-k-1)}} = \frac{\frac{(0,033 - 0)}{142 - 137}}    {\frac{1 - 0,0330}{(137)}} = 0,943
+\end{displaymath}
+
+Não há mudança na decisão do item anterior.
+
+\subsection*{(iii)}
+
+Não, pois a função logaritmo natural aceita apenas valores positivos.
+
+\subsection*{(ii)}
+
+Baseado nas regressões acima a evidência é fraca, reforçando a hipótese de mercados eficientes.
+
+
+\end{document}

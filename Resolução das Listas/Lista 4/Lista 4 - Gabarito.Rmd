@@ -1,0 +1,64 @@
+---
+title: "Lista 4 - Gabarito"
+author: "Caio Forcione"
+date: "2022-10-24"
+output: pdf_document
+---
+
+```{r}
+require(wooldridge)
+```
+
+
+
+
+# C2
+
+## (i)
+
+```{r}
+summary(ceosal2$salary)
+
+summary(ceosal2$ceoten)
+```
+
+## (ii)
+
+```{r}
+table(ceosal2$ceoten)
+```
+
+## (iii)
+
+```{r}
+reg_c2 <- lm(lsalary ~ ceoten, data = ceosal2)
+
+summary(reg_c2)
+```
+
+
+
+# (i)
+
+```{r eval  = FALSE}
+?sleep75
+
+View(sleep75)
+```
+
+
+```{r}
+reg_c3 <- lm(sleep ~ totwrk, data = sleep75)
+
+summary (reg_c3)
+```
+
+# (ii)
+
+Se aumentar a jornada de trabalho em 2 horas por semana é esperado que se reduza aproximadamente 18 minutos de sono por semana.
+
+
+
+
+
+

@@ -1,0 +1,228 @@
+\documentclass[hidelinks,11pt]{book}
+
+%These tell TeX which packages to use.
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{graphicx} % adicionar figuras
+\usepackage{float}
+\usepackage{scalerel,stackengine}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{setspace} % configurar espaçamento entre linhas
+\usepackage{babel} %lingua portuguesa
+\usepackage{microtype}
+\usepackage{subcaption} % descrição de figuras
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[round]{natbib}
+\usepackage[a4paper, margin=2cm]{geometry} % margem
+\usepackage{hyperref}
+
+%Here I define some theorem styles and shortcut commands for symbols I use often
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+	\begin{center}
+	{\Large Econometria I \hspace{0.5cm} Lista 5}\\
+	Profa. Lorena Hakak\\
+	Entrega: 31/10/2022
+\end{center}
+
+\vspace{0.2 cm}
+
+
+
+\section*{Exercício 3}
+
+\subsection*{(i)}
+
+Neste caso, $\beta_1$ < 0, pois um aumento de 1 minuto de trabalho total por semana representará uma redução de $\beta_1$ minutos de sono por semana.
+
+\subsection*{(ii)}
+
+Indivíduos com mais anos de educação terão mais responsabilidades para administrar durante boa parte de sua vida no mercado de trabalho, reduzindo o tempo disponível para dormir. $\beta_2$ < 0. Analogamente para idade, $\beta_3$ < 0.\\
+
+No entanto, cabe pontuar que indivíduos com muitos anos de educação e idade mais elevada, por terem trabalhado por mais tempo e, provavelmente, adquirido estabilidade financeira, podem dispor de mais tempo para dormir. Para captar esse fenômeno, bastaria incluir no modelo econométrico as variáveis $educ^2$ e $age^2$. O sinal de seus respectivos $\beta$ ditaria a concavidade da curva de cada variável.
+
+\subsection*{(iii)}
+
+Se alguém trabalha 5 horas a mais por semana, trabalha 300 minutos a mais. Logo, dorme $- 0,148*300 = 44,4$ minutos a menos por semana.
+
+\subsection*{(iv)}
+
+O sinal do parâmetro dos anos de educação é negativo, o que representa que indivíduos com mais anos de educação possuem menos minutos por semana para dormir. Comparando a magnitude de todas as variáveis independentes, o parâmetro da educação é o de maior impacto.
+
+\subsection*{(v)}
+
+Como $R^2 = 0,113$, apenas $11,3\%$ da variação amostral do tempo de sono por semana é explicada pelas variáveis independentes do modelo. Exposição a telas, trabalhar e estudar ao mesmo tempo, se é pai/mãe são variáveis que possivelmente explicam o tempo de sono semanal, e não necessariamente estão correlacionadas com $totwork$.
+
+\section*{Exercício 6}
+
+Obs: Há um erro no enunciado da 6ª ed do livro texto, como pode ser verificado na versão inglesa. O correto é $\theta_1 = \beta_1 + \beta_2$.
+
+\subsection*{(i)}
+
+$ E[\theta_1] = E[\beta_1 + \beta_2] = E[\beta_1] + E[\beta_2]$; Cp,p as hipóteses RLM.1 RLM.4 são válidas, o estimador de MQO do parâmetro é o melhor. Logo, vem que: $E[\beta_1] + E[\beta_2] = \hat{\beta_1} + \hat{\beta_2} = \hat{\theta_1}$. Portanto, o estimador não é viesado.
+
+\subsection*{(ii)}
+
+\begin{displaymath}
+	Var[\theta_1] = Var[\beta_1 + \beta_2]
+\end{displaymath}
+
+\begin{displaymath}
+	Var[\theta_1] = Var[\beta_1] + Var[\beta_2] + 2Cov[\beta_1, \beta_2]
+\end{displaymath}
+
+Sendo que:
+
+\begin{displaymath}
+	Correl[\beta_1, \beta_2] = \frac{Cov[\beta_1, \beta_2]}   {dp[\beta_1]dp[\beta_2]}
+\end{displaymath}
+
+e
+
+\begin{displaymath}
+	dp[\beta] = \sqrt{Var[\beta]}
+\end{displaymath}
+
+então:
+
+\begin{displaymath}
+	Var[\theta_1] = Var[\beta_1] + Var[\beta_2] + 2\sqrt{Var[\beta_1]Var[\beta_2]}Correl[\beta_1, \beta_2]
+\end{displaymath}
+
+
+
+\section*{Exercício 7}
+
+Das opções de hipóteses apresentadas, apenas a omissão de uma variável importante poderia fazer com que o estimador de MQO seja viesado. A heteroscedastidade afeta a variância do estimador dos parâmetros, afetando os testes de hipótese destes; e o coeficiente de correlação de 0,95 entre duas variáveis independentes não faz com que os estimadores de MQO tenham problemas.
+
+\section*{Exercício 8}
+
+\begin{displaymath}
+	\hat{avgprod} = \hat{\beta_0} + \hat{\beta_1}avgtrain + \hat{\beta_2}avgabil
+\end{displaymath}
+
+\begin{displaymath}
+	\tilde{avgprod} = \tilde{\beta_0} + \tilde{\beta_1}avgtrain
+\end{displaymath}
+
+\begin{displaymath}
+	avgtrain = \tilde{\delta_1} avgabil + \mu_1
+\end{displaymath}
+
+Como $\tilde{\beta_1} = \hat{\beta_1} + \tilde{delta_1} \hat{\beta_2}$, o viés de $\tilde{\beta_1}$ é $\tilde{delta_1} \hat{\beta_2}$ . Como $\tilde{\delta_1}$ é a a covariância amostral de $avgtrain$ e $avgabil$, seu sinal acompanhará o da correlação das duas variáveis independentes – neste caso, será negativo. 
+
+\section*{Exercício 14}
+
+\begin{displaymath}
+	\hat{\sigma} = \frac{SQR}{(n - k - 1)}
+\end{displaymath}
+
+Com $n$ sendo o número de variáveis do modelo e $k$ o número de parâmetros. Adicionar uma variável ao modelo diminui o SQR, mas também diminui o denominador da razão (graus de liberdade), não sendo possível garantir se a inclusão/remoção de uma variável aumenta ou não o erro padrão da regressão.\\
+
+Observando primeiro o caso em que $x_2$ não tem significância estatística, ou seja, $\beta_2 = 0$. Se isso for verdade, então a inclusão não irá afetar o poder de explicação da regressão, sendo assim, $R^2$ não irá alterar e por consequência FIV também será mantido. Entretanto, inserir essa varíavel no modelo irá fazer com que a variância, fazendo com que:
+
+\begin{displaymath}
+	ep(\hat{\beta_1}) > ep(\tilde{\beta_1})
+\end{displaymath}
+
+
+Agora, caso $x_2$ seja uma variável estatísticamente relevante ($\beta_2 \not= 0$) então excluir no modelo irá causar um problema do viés de varíavel omitida, causando uma variância maior no modelo. Logo:
+
+\begin{displaymath}
+	ep(\hat{\beta_1}) < ep(\tilde{\beta_1})
+\end{displaymath}
+
+\section*{Exercício 15}
+
+\subsection*{(i)}
+
+Na primeira regressão possui 351 graus de liberdade e, na segunda, 350. O erro padrão da regressão do segundo modelo é menor do que o primeiro pois a inclusão de uma variável adicional, apesar de reduzir o grau de liberdade, aumentou a capacidade preditiva do modelo, reduzindo o SQR e, consequentemente, o erro padrão da regressão.
+
+\subsection*{(i)}
+
+Faz sentido haver uma correlação amostral razoável entre as variáveis, pois jogadores que duram mais na liga principal vão apresentar um desempenho em rebatidas melhor do que os que possuem menos tempo.
+
+\begin{displaymath}
+	FIV = \frac{1}{1 - R^2} = \frac{1}{1 - 0,487} = \frac{1}{0,513} \approx 1,95
+\end{displaymath}
+
+Pela fórmula, é possível observar que, se $R^2 \rightarrow 1$, $FIV \rightarrow \infty$. Caso contrário, se $R^2 \rightarrow 0$ isto é, se a correlação amostral for baixa, $FIV \rightarrow \infty$. Pelo valor calculado, concluímos que há baixa colinearidade entre as variáveis independentes.
+
+\subsection*{(iii)}
+
+
+Como $rbisyr$ é variável relevante para o modelo, sua inclusão torna a estimação do impacto de years mais eficiente, logo com menor erro padrão.
+
+
+
+
+
+
+\end{document}

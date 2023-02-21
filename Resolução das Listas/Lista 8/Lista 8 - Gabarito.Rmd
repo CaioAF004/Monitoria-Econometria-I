@@ -1,0 +1,113 @@
+---
+title: "Exercícios Práticos"
+output: pdf_document
+---
+
+```{r}
+require(wooldridge)
+```
+
+
+
+# C2
+
+
+## (i)
+
+```{r}
+
+lwage <- log(wage2$wage)
+
+reg1 <- lm(lwage ~ educ + exper + tenure + married + black + south + urban, data = wage2)
+
+summary(reg1)
+```
+
+
+A diferença percentual entre os salários de negros e não negros é de aproximadamente 18,8\%. Além disso, é estatisticamente significante.
+
+## (ii)
+
+```{r}
+
+exper2 <- (wage2$exper)^2
+
+tenure2 <- (wage2$tenure)^2
+
+
+reg2 <- lm(lwage ~ educ + exper + tenure + married + black + south + urban + exper2 + tenure2, data = wage2)
+
+r2.ir <- summary(reg2)$r.squared
+
+r2.r <- summary(reg1)$r.squared
+
+F <- (r2.ir - r2.r) / (1 - r2.ir) * (925/2)
+
+F
+
+qf(1-0.2,2,925)
+```
+
+## (iii)
+
+```{r}
+
+
+reg3 <- lm(lwage ~ educ + exper + tenure + married + black + south + urban + black*educ, data = wage2)
+
+summary(reg3)
+```
+
+## (iv)
+
+```{r}
+
+
+reg4 <- lm(lwage ~ educ + exper + tenure + married + black + south + urban, data = wage2)
+
+summary(reg4)
+```
+
+
+# C8
+
+## (i)
+
+O sinal de $\beta_1$ será positivo.
+
+## (ii)
+
+
+```{r}
+reg5 <- lm(approve ~ white, data = loanapp)
+
+summary(reg5)
+```
+
+Ele é estatisticamente significante e grande do ponto de vista prático, sendo 20\% mais provável que brancos consigam emprestímo do que não brancos.
+
+## (iii)
+
+
+```{r}
+reg6 <- lm(approve ~ white + hrat + obrat + loanprc + unem + male + married + dep + sch + cosign + chist + pubrec + mortlat1 + mortlat2 + vr, data = loanapp)
+
+summary(reg6)
+```
+
+A $dummy$ $white$ continua estatisticamente significante, reduzindo seu peso para 13\%.
+
+## (iv)
+
+```{r}
+reg7 <- lm(approve ~ white + hrat + obrat + loanprc + unem + male + married + dep + sch + cosign + chist + pubrec + mortlat1 + mortlat2 + vr + white*obrat, data = loanapp)
+
+summary(reg7)
+```
+É significativo.
+
+## (v)
+
+Será igual a -0,146 + 0,008*35 = 0,134.
+
+

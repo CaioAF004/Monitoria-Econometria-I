@@ -1,0 +1,84 @@
+---
+title: "Exercícios Práticos"
+output: pdf_document
+---
+
+```{r}
+require(wooldridge)
+require(tidyverse)
+```
+
+# C1
+
+## (i)
+
+O $\beta_1$ nesse caso significa o quanto variações percentuais nos gastos de campanha no candidato A impactam no voto do próprio candidato.
+
+## (ii)
+
+\begin{center}
+$H_0 : \beta_1 - \beta_2 = 0$\\
+$H_1 : \beta_1 - \beta_2 \not= 0$\\
+\end{center}
+
+
+## (iii)
+
+```{r}
+reg1 <- lm(voteA ~ log(expendA) + log(expendB) + prtystrA, data = vote1)
+
+summary(reg1)
+```
+
+## (iv)
+
+$voteA = \beta_0 + \beta_1 log(expendA) + \beta_2 log(expendB) + \beta_3 prtystrA + \beta_2 log(expendA) - \beta_2log(expendA)$\\
+
+$voteA = \beta_0 + (\beta_1 - \beta_2)log(expendA) + \beta_2log(expendB*expendA) + \beta_3prtystrA$\\
+
+
+\begin{center}
+$H_0 : \theta_1 = 0$\\
+$H_1 : \theta_1 \not= 0$
+\end{center}
+
+```{r}
+aminusb <- log(vote1$expendA / vote1$expendB)
+
+ab <- log (vote1$expendB * vote1$expendA)
+
+reg2 <- lm(voteA ~ aminusb + ab + prtystrA, data = vote1)
+
+summary(reg2)
+
+```
+
+# C8
+
+## (i)
+
+Os dados desse exercício possuem o nome de "k401ksubs".\\
+
+
+```{r}
+
+table(k401ksubs$fsize) # IRÁ MOSTRAR QUANTAS RESIDÊNCIAS COM UMA PESSOA
+
+fsize1 <- filter(k401ksubs, fsize == 1)
+
+
+```
+
+
+## (ii)
+
+```{r}
+
+reg3 <- lm(nettfa ~ inc + age, data = fsize1)
+
+summary(reg3)
+
+```
+
+
+

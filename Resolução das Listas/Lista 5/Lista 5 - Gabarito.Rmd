@@ -1,0 +1,71 @@
+---
+title: "Exercícios Práticos"
+output: pdf_document
+---
+
+
+```{r}
+require(wooldridge)
+```
+
+
+# C5
+
+```{r}
+reg1 <- lm(educ ~ exper + tenure, data = wage1)
+
+summary(reg1)
+```
+
+```{r}
+residual <- residuals(reg1)
+
+reg2 <- lm(lwage ~ residual, data = wage1)
+
+summary(reg2)
+```
+
+```{r}
+reg3 <- lm(lwage ~ educ + exper + tenure, data = wage1)
+
+summary(reg3)
+```
+
+O coeficiente $\hat{r_1}$ é aproximadamente o mesmo que o coeficiente de $educ$.
+
+# C6
+
+## (i)
+
+```{r}
+reg4 <- lm(IQ ~ educ, data = wage2)
+
+summary(reg4)
+```
+
+## (ii)
+
+```{r}
+reg5 <- lm(log(wage) ~ educ, data = wage2)
+
+summary(reg5)
+```
+
+## (iii)
+
+```{r}
+reg6 <- lm(log(wage) ~ educ + IQ, data = wage2)
+
+summary(reg6)
+```
+
+## (iv)
+
+\begin{displaymath}
+0.0391199 + 0.0058631*3.5338 = 0,059839 = \tilde{\delta_1}
+\end{displaymath}
+
+
+É possível observar que $\tilde{\beta_1} = \hat{\beta_1} + \hat{\beta_2} \tilde{\delta_1}$.
+
+

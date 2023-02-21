@@ -1,0 +1,121 @@
+---
+title: "Exercícios Práticos"
+output: pdf_document
+---
+```{r}
+require(wooldridge)
+```
+
+# C1
+
+## (i)
+
+Espera-se um sinal negativo na variável log(\textit{dist}).
+
+```{r}
+
+lprice <- log(kielmc$price)
+
+ldist <- log(kielmc$dist)
+
+
+reg1 <- lm(lprice ~ ldist, data = kielmc)
+
+summary(reg1)
+
+```
+## (ii)
+
+```{r}
+
+
+lintst <- log(kielmc$intst)
+
+larea <- log(kielmc$area)
+
+lland <- log(kielmc$land)
+             
+
+reg2 <- lm(price ~ ldist + lintst + larea + lland + rooms + baths + age, data = kielmc)
+
+summary(reg2)
+
+
+```
+Os resultados conflitantes podem ser explicados pela colinearidade entre as variáveis independentes.
+
+## (iii)
+
+```{r}
+
+
+lintst2 <- lintst^2
+             
+
+reg3 <- lm(price ~ ldist + lintst + larea + lland + rooms + baths + age + lintst2, data = kielmc)
+
+summary(reg3)
+
+
+```
+Agora os resultados se mostraram estatísticamente significantes, e a forma funcional quadrática da variável distância da casa até a rodovia interestadual se mostrou correlacionada com a variável \textit{dist}, se mostrando nessa última regressão.
+
+## (iv)
+
+
+```{r}
+
+
+ldist2 <- ldist^2
+             
+
+reg4 <- lm(price ~ ldist + lintst + larea + lland + rooms + baths + age + lintst2 + ldist2, data = kielmc)
+
+summary(reg4)
+
+
+```
+
+Não se mostrou significativo.
+
+# C2
+
+## (i)
+
+```{r}
+
+lwage <- log(wage1$wage)
+
+exper2 <- (wage1$exper)^2
+
+reg5 <- lm(lwage ~ educ + exper + exper2, data = wage1)
+
+summary(reg5)
+
+```
+
+## (ii)
+
+Sim, é significante a nível de 1\%.
+
+## (iii)
+
+
+
+
+```{r}
+x <- mean(wage1$exper)
+
+x
+```
+
+O retorno esperado para o quinto ano de experiência é de aproximadamente 6\%. Já com vinte anos é de 3,5\%.
+
+## (iv)
+
+O valor no qual acréscimos marginals passam a diminuir \textit{log(wage)} é de 11,21 (basta calcular a derivada de $wage$ em relação a $exper$ e igualar a zero).
+
+
+
+
+

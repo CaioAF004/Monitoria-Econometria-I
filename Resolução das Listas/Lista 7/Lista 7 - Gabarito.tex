@@ -1,0 +1,157 @@
+\documentclass[hidelinks,11pt]{book}
+
+%These tell TeX which packages to use.
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{graphicx} % adicionar figuras
+\usepackage{float}
+\usepackage{scalerel,stackengine}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{setspace} % configurar espaçamento entre linhas
+\usepackage{babel} %lingua portuguesa
+\usepackage{microtype}
+\usepackage{subcaption} % descrição de figuras
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+\usepackage[round]{natbib}
+\usepackage[a4paper, margin=2cm]{geometry} % margem
+\usepackage{hyperref}
+
+%Here I define some theorem styles and shortcut commands for symbols I use often
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+	
+	\begin{center}
+		{\Large Econometria I \hspace{0.5cm} Lista 7}\\
+		Profa. Lorena Hakak\\
+		Entrega: 23/11/2022
+	\end{center}
+	
+	\vspace{0.2 cm}
+	
+	
+	
+	\section*{Exercício 3}
+	
+\subsection*{(i)}
+
+O efeito marginal se torna negativo no termo quadrático da variável \textit{sales}.
+
+\subsection*{(ii)}
+
+Depende do nível de intervalo de confiança. a estatística \textit{t} da variável $sales^2$ é de -1.86 (0,000000007/0,000000037), a 10\% nós rejeitamos a hipótese nula (que a variável não tem significância estatística) mas a 5\% não rejeitamos.
+
+\subsection*{(iii)}
+
+\begin{table}[!htbp] \centering 
+	\caption{} 
+	\label{} 
+	\begin{tabular}{@{\extracolsep{5pt}}lc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+		\cline{2-2} 
+		\\[-1.8ex] & rdintens \\ 
+		\hline \\[-1.8ex] 
+		salesbil & 0.301$^{**}$ \\ 
+		& (0.139) \\ 
+		& \\ 
+		salesbil2 & $-$0.007$^{*}$ \\ 
+		& (0.004) \\ 
+		& \\ 
+		Constant & 2.613$^{***}$ \\ 
+		& (0.429) \\ 
+		& \\ 
+		\hline \\[-1.8ex] 
+		Observations & 32 \\ 
+		R$^{2}$ & 0.148 \\ 
+		Adjusted R$^{2}$ & 0.090 \\ 
+		Residual Std. Error & 1.788 (df = 29) \\ 
+		F Statistic & 2.527$^{*}$ (df = 2; 29) \\ 
+		\hline 
+		\hline \\[-1.8ex] 
+		\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+	\end{tabular} 
+\end{table} 
+
+\subsection*{(iv)}
+
+Estatisticamente não há diferença entre os modelos, apenas facilita na interpretação dos coeficientes utilizar as variáveis independentes em bilhões.
+
+	\section*{Exercício 7}
+
+O segundo modelo, além de ter um $R^2$ maior que os outros, possui um $\bar{R}^2$ maior, mostrando que a estatística F irá aumentar em sua significância conjunta. Isso se deve por utilizar a variável \textit{totemp} em log, que se mostrou mais significante do que utilizar a variável em nível, ou acrescentar sua variável na forma quadrática, como no terceiro modelo.
+
+
+
+
+
+
+
+	
+\end{document}
